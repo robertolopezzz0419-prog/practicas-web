@@ -57,13 +57,28 @@ class VerificacionController extends Controller
         }
 
         if (!Hash::check($request->codigo, $codigoGuardado)) {
-            Session::put('intentos_codigo', $intentos + 1);
 
-            return back()->withErrors([
-                'codigo' => 'El código ingresado es incorrecto. Intentos restantes: ' . (4 - $intentos)
-            ]);
-        }
+    $intentos++;
 
+    Session::put('intentos_codigo', $intentos);
+
+    if ($intentos >= 5) {
+
+        Session::forget([
+            'codigo_verificacion',
+            'codigo_expira',
+            'intentos_codigo'
+        ]);
+
+        return back()->withErrors([
+            'codigo' => 'Superaste los 5 intentos. Solicita un nuevo código.'
+        ]);
+    }
+
+    return back()->withErrors([
+        'codigo' => 'El código ingresado es incorrecto. Intentos restantes: ' . (5 - $intentos)
+    ]);
+}
         Session::forget([
             'codigo_verificacion',
             'codigo_expira',

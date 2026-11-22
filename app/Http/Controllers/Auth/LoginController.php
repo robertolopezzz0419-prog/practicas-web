@@ -26,7 +26,8 @@ class LoginController extends Controller
                 'administrador_verificado',
                 'requiere_verificacion',
                 'codigo_verificacion',
-                'codigo_expira'
+                'codigo_expira',
+                'intentos_codigo'
             ]);
 
             if ($usuario->rol === 'administrador') {

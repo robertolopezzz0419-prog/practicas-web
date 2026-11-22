@@ -1,0 +1,163 @@
+:root {
+    --rosa: #e8a9c4;
+    --rosa-claro: #fcebf2;
+    --blanco: #ffffff;
+    --texto: #51434a;
+    --verde: #71866d;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--rosa-claro);
+
+    background-image:
+        linear-gradient(
+            rgba(255, 249, 252, 0.10),
+            rgba(255, 249, 252, 0.10)
+        ),
+        url('/images/cerezo.gif');
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    color: var(--texto);
+}
+
+
+/* formularios cont*/
+
+.contenedor {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.tarjeta {
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    width: 100%;
+    max-width: 420px;
+    padding: 35px;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 10px 35px rgba(90, 40, 65, 0.18);
+}
+
+.tarjeta h1{
+    text-align: center;
+    margin-bottom: 5px;
+    color: var(--rosa);
+    font-size: 32px;
+}
+
+.tarjeta p {
+    text-align: center;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+/* formulario campos*/
+.tarjeta label{
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.tarjeta input{
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ead5df;
+    border-radius: 10px;
+    transition: 0.3s;
+    outline: none;
+}
+
+.tarjeta input:focus {
+    border-color: var(--rosa);
+    box-shadow: 0 0 8px rgba(232, 169, 196, 0.35);
+}
+
+/*Boton*/
+
+.tarjeta button{
+    width: 100%;
+    padding: 13px;
+    background-color: var(--rosa);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.tarjeta button:hover{
+    background-color: #d78eae;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(215, 142, 174, 0.35);
+}
+
+.tarjeta .error{
+    color: #d9534f;
+}
+
+.subtitulo {
+    text-align: center;
+    font-size: 17px;
+    color: var(--texto);
+    margin-bottom: 25px;
+}
+
+/* temporizador*/
+
+.titulo-tiempo{
+    text-align: center;
+    color: var(--texto);
+    font-size: 18px;
+    margin: 20px 0 12px;
+}
+
+.temporizador {
+    background-color: var(--rosa-claro);
+    border: 1px solid var(--rosa);
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.temporizador span {
+    color: #d78eae;
+    font-size: 38px;
+    font-weight: bold;
+}
+
+.texto-tiempo {
+    font-size: 14px;
+    color: var(--texto);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.mensaje-exito{
+    color: var(--verde);
+    font-weight: bold;
+}
+
+.tarjeta hr {
+    border: none;
+    border-top: 1px solid #ead5df;
+    margin: 25px 0;
+}

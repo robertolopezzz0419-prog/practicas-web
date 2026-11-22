@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\VerificacionController;
 use App\Http\Controllers\Auth\LoginController;
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     return view('welcome');
@@ -14,6 +15,7 @@ Route::get('/login', function () {
 
 Route::post('/login', [LoginController::class, 'autenticar'])
     ->name('login.autenticar');
+    
 
 Route::middleware(['auth'])->group(function () {
 
@@ -44,5 +46,14 @@ Route::middleware(['auth'])->group(function () {
         })->name('empleado.inicio');
 
     });
+    
+    Route::post('/logout', function () {
+    Auth::logout();
+
+    request()->session()->invalidate();
+    request()->session()->regenerateToken();
+
+    return redirect()->route('login');
+})->name('logout');
 
 });
